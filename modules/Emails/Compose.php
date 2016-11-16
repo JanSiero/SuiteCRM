@@ -334,7 +334,9 @@ function getQuotesRelatedData($data)
         $parentName = from_html($parentName);
 
         $return['parent_name'] = $parentName;
-        $return['toAddress'] = from_html($bean->full_name) . " <" . from_html($bean->emailAddress->getPrimaryAddress($bean)) . ">";
+        if (isset($bean->emailAddress)) {
+                $return['toAddress'] = from_html($bean->full_name) . " <" . from_html($bean->emailAddress->getPrimaryAddress($bean)) . ">";
+        }
     }
 
 
