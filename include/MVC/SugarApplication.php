@@ -118,7 +118,7 @@ class SugarApplication
 
         $authController = new AuthenticationController();
 
-		if(($user_unique_key != $server_unique_key) && (!in_array($this->controller->action, $allowed_actions)) &&
+		if(!empty($user_unique_key) && ($user_unique_key != $server_unique_key) && (!in_array($this->controller->action, $allowed_actions)) &&
 		   (!isset($_SESSION['login_error'])))
 		   {
 			session_destroy();
